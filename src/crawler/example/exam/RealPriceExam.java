@@ -21,10 +21,10 @@ import org.jsoup.nodes.Element;
  */
 public class RealPriceExam {
 	public static void main(String[] args) {
-		
+		//E 高雄
 		String uri = "zip:http://plvr.land.moi.gov.tw"
 				+ "/Download?type=zip&fileName=lvr_landxml.zip"
-				+ "!/A_LVR_LAND_A.XML";
+				+ "!/E_LVR_LAND_A.XML";
 
 
 		Document jsoupDoc = CrawlerPack.start()
