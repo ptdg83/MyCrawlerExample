@@ -17,6 +17,27 @@ import org.jsoup.select.Elements;
  * @author Abola Lee
  *
  */
+
+/*
+*
+* https://www.facebook.com/pbplus.me/videos/1348126178534984/
+*
+* {
+*  "231902486824031_1348126178534984": {
+*    "reactions": {
+*      "data": [
+*      ],
+*      "summary": {
+*        "total_count": 17460
+*      }
+*    },
+*    "id": "231902486824031_1348126178534984"
+*  }
+* }
+*
+*
+* */
+
 public class FacebookExam_Reactions {
 	
 	public static void main(String[] args) {
@@ -25,28 +46,33 @@ public class FacebookExam_Reactions {
 
 		String uri = 
 				"https://graph.facebook.com/v2.6"
-				+ "/chuchupepper/insights?since=1440019257&until=1440278457"
-				+ "&access_token=EAACEdEose0cBACvImeP9zHrP9GUwjzADRjI4tRuojl7oWDpvhra9jMi4ZC3e52zymPMJSiFeJnHvNv9vMiAPiIp0Uvm1RrOcWZCIfZAfCZCpSyq6pTb21nEUGd8kJv0ZBQp36FmjgTKfL0V775NdMCoAE5t6BvoctdDKjUN9BfbWtMHAo9vvoFMlvbco1gNsZD";
+				+ "/?ids=231902486824031_1348126178534984&fields=reactions.limit(0).summary(total_count)"
+				+ "&access_token=260436357754749%7C4fce8ce124a2c621e24fdf2468d819d9";
 
 
-		Elements elems =
+		Elements elems1 =
 				CrawlerPack.start()
 				.getFromJson(uri)
-				.select("data");
-		
-		String output = "id,reactions";
+				.select("id");
+
+		Elements elems2 =
+				CrawlerPack.start()
+						.getFromJson(uri)
+						.select("reactions");
+
+		String output = "id, reactions\n";
 
 		// 遂筆處理
-		for( Element data: elems ){
-			String id = data.select("id").text();
-
-			// FIXIT
-			String reactions = "";
-
-
-			output += id + "," + reactions + "\n";
+		for( Element data1: elems1 ){
+			String id = data1.select("id").text();
+			//String id = "231902486824031_1348126178534984";
+			for( Element data2: elems2 ){
+				// FIXIT
+				String reactions = data2.select("total_count").text();
+				output += id + "," + reactions + "\n";
+			}
 		}
 
-		System.out.println( output );
+		System.out.println( output  );
 	} 
 }
