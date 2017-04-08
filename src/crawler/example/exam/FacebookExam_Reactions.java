@@ -17,7 +17,7 @@ import org.jsoup.select.Elements;
  * @author Abola Lee
  *
  */
-public class FacebookExam_BDSE0411 {
+public class FacebookExam_Reactions {
 	
 	public static void main(String[] args) {
 		
