@@ -60,7 +60,7 @@ public class FacebookExam_Reactions {
 				.getFromJson(uri)
 				.select("reactions");
 
-		String output = "id, reactions\n";
+		String output = "post_id, post_reactions\n";
 
 		// 遂筆處理
 		for( Element data1: elems1 ){
