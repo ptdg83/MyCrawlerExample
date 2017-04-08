@@ -19,7 +19,7 @@ import org.jsoup.nodes.Element;
  * @author Abola Lee
  *
  */
-public class RealPriceExam_Kaoshiung {
+public class RealPriceExam_Kaohsiung {
 	public static void main(String[] args) {
 		//E 高雄 Kaohsiung Land //
 		String uri = "zip:http://plvr.land.moi.gov.tw"
