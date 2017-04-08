@@ -57,15 +57,15 @@ public class FacebookExam_Reactions {
 
 		Elements elems2 =
 				CrawlerPack.start()
-						.getFromJson(uri)
-						.select("reactions");
+				.getFromJson(uri)
+				.select("reactions");
 
 		String output = "id, reactions\n";
 
 		// 遂筆處理
 		for( Element data1: elems1 ){
 			String id = data1.select("id").text();
-			//String id = "231902486824031_1348126178534984";
+
 			for( Element data2: elems2 ){
 				// FIXIT
 				String reactions = data2.select("total_count").text();
