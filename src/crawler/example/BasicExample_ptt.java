@@ -60,7 +60,6 @@ public class BasicExample_ptt {
 			    .getFromHtml(uri)
 			    //.select(".btn-group.btn-group-paging > a:eq(1)")
 				.select("div.title > a")
-
 		);
 
 	}
