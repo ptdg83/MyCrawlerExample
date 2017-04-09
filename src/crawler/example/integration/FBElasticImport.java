@@ -10,7 +10,7 @@ import org.jsoup.select.Elements;
  */
 public class FBElasticImport {
 
-    static String elasticHost = "localhost" ;
+    static String elasticHost = "192.168.152.184" ;
     static String elasticPort = "9200" ;
     static String elasticIndex = "fb";
     static String elasticIndexType = "data";
