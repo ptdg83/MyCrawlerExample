@@ -22,8 +22,8 @@ public class BasicExample_ptt {
 		CrawlerPack.setLoggerLevel(SimpleLog.LOG_LEVEL_OFF);
 
 		// 遠端資料路徑
-		String uri = "https://www.ptt.cc/bbs/Gossiping/M.1491703320.A.848.html";
-/*
+/*		String uri = "https://www.ptt.cc/bbs/Gossiping/M.1491703320.A.848.html";
+
 		System.out.println(
 				CrawlerPack.start()
 				
@@ -43,13 +43,24 @@ public class BasicExample_ptt {
 
 		);
 	*/
-		Elements jsoup = CrawlerPack.start()
+/*		Elements jsoup = CrawlerPack.start()
 				.addCookie("over18","1")
 				.getFromHtml(uri)
 				.select("#main-content.bbs-screen.bbs-content");
 		jsoup.select("div,span").remove();
         System.out.println(
         		jsoup.text()
+		);
+*/
+		String uri = "https://www.ptt.cc/bbs/Baseball/index.html";
+		System.out.println(
+
+				CrawlerPack.start()
+			    //.addCookie("over18","1")	// 設定cookie
+			    .getFromHtml(uri)
+			    //.select(".btn-group.btn-group-paging > a:eq(1)")
+				.select("div.title > a")
+
 		);
 
 	}
